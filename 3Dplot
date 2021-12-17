@@ -1,0 +1,15 @@
+第一款软件：plotly
+画3Dscatter
+import plotly.express as px
+import pandas as pd
+
+#df = px.data.iris()
+
+#df=pd.DataFrame(indices,columns = ['x','y','z'])
+df=pd.DataFrame({'z':indices[0],'x':indices[1],'y':indices[2],'size':1,'symbol':"square",'data_values':data_values})
+print(df)
+fig = px.scatter_3d(df, x='x', y='y', z='z',range_x=[0,475],range_y=[0,782],range_z=[0,150],size='size',size_max=1,symbol='symbol',opacity=0.2)
+fig.update_traces(marker=dict(size=10,
+                              line=dict(width=0,
+                                        color='blue')))
+fig.show()
